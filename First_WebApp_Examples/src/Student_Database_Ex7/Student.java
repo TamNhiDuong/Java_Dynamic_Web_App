@@ -60,5 +60,8 @@ public class Student {
 	public void setPostcode(int postcode) {
 		this.postCode = postcode;
 	}
+	public String toString() {
+		return id + " " + firstName + " " + lastName;
+	}
 
 }
