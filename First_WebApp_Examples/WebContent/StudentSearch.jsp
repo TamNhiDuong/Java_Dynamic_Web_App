@@ -9,29 +9,31 @@
 	<link rel="stylesheet" type="text/css" href="css/WebAppExamples.css">
 </head>
 <body>
-	
+	<h1>Java FristWebApp Exercise</h1>	
 	<div>
-	    <h1>Search Student</h1>
-
-
+	    <h3>Search Student</h3>
+	    
+		
 		<form action="studentSearchService" method="GET">
 			<input type="submit" value="Show student" />
 			<label>Student ID: </label>
 			<input type="text" name="txtId" />
 		</form>
-
-		<br/><br/>
-
-		<%-- If this JSP page is requested with a parameter called 'movieList' 
-		     and the list is not empty, then show the data in an HTML table.
-		 --%>
-			<c:out value="${ student}" />
-
-		<%-- If the list is empty, then show an appropriate message --%>
-		<c:if test="${ studentList != null && studentList.size() == 0 }">
-			No student found for the given id: <c:out value="${ txtId }" />
+		
+		
+		<c:if test="${ student.id ==-1 }">
+		Student not found at Id: <c:out value ="${txtId }"/>
 		</c:if>
+		
+		<c:if test ="${ student.id > 0 }">
+		<c:out value = "${ student.id }"/>
+		<c:out value = "${ student.firstname }"/>
+		<c:out value = "${ student.lastname }"/>
+		</c:if>
+		
+		
+		
 	</div>
 
 </body>
-</html> 
+</html>

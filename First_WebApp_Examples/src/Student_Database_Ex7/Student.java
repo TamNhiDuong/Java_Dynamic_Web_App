@@ -2,27 +2,27 @@ package Student_Database_Ex7;
 
 public class Student {
 	private int id;
-	private String lastName;
-	private String firstName;
-	private String street;
-	private String postOffice;
-	private int postCode;
+	private String firstname;
+	private String lastname;
+	private String streetaddress;
+	private String postoffice;
+	private int postcode;
 	public Student() {
 		id = -1;
-		lastName="";
-		firstName="";
-		street="";
-		postCode = -1;
-		postOffice="";
+		firstname="";
+		lastname="";
+		streetaddress="";
+		postcode = -1;
+		postoffice="";
 	}
-	public Student(int id, String lastname, String firstname, String street, int postcode,String postoffice) {
+	public Student(int id, String firstname, String lastname, String streetaddress, int postcode,String postoffice) {
 		super();
 		this.id = id;
-		this.lastName = lastname;
-		this.firstName = firstname;
-		this.street = street;
-		this.postOffice = postoffice;
-		this.postCode = postcode;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.streetaddress = streetaddress;
+		this.postoffice = postoffice;
+		this.postcode = postcode;
 	}
 	public int getId() {
 		return id;
@@ -30,38 +30,36 @@ public class Student {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getLastname() {
-		return lastName;
-	}
-	public void setLastname(String lastname) {
-		this.lastName = lastname;
-	}
+	
 	public String getFirstname() {
-		return firstName;
+		return firstname;
 	}
 	public void setFirstname(String firstname) {
-		this.firstName = firstname;
+		this.firstname = firstname;
 	}
-	public String getStreet() {
-		return street;
+	public String getLastname() {
+		return lastname;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String getStreetaddress() {
+		return streetaddress;
+	}
+	public void setStreetaddress(String streetaddress) {
+		this.streetaddress = streetaddress;
 	}
 	public String getPostoffice() {
-		return postOffice;
+		return postoffice;
 	}
 	public void setPostoffice(String postoffice) {
-		this.postOffice = postoffice;
+		this.postoffice = postoffice;
 	}
 	public int getPostcode() {
-		return postCode;
+		return postcode;
 	}
 	public void setPostcode(int postcode) {
-		this.postCode = postcode;
+		this.postcode = postcode;
 	}
-	public String toString() {
-		return id + " " + firstName + " " + lastName;
-	}
-
+	
 }

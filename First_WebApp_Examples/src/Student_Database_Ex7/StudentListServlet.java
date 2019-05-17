@@ -13,45 +13,30 @@ import java.util.List;
 import Student_Database_Ex7.Student;
 import Student_Database_Ex7.StudentDAO;
 
-	@WebServlet("/studentListService")
-	public class StudentListServlet extends HttpServlet {
-		private static final long serialVersionUID = 1L;
 
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@WebServlet("/studentListService")
+public class StudentListServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		try {
 
 			List<Student> studentList = null;
 
-			String student ="";
-			int givenId = -1;
-
-
-			// 1. Retrieve the values of the request parameters
-			String Idtext = request.getParameter("txtId");
-
-			if (Idtext != null) {
-				try {
-					givenId = Integer.parseInt(Idtext);
-				} catch (Exception ex) { }
-			}
-
-			// 2. Create the data to be sent to the JSP page
 			StudentDAO studentDAO = new StudentDAO();
-
-			student= studentDAO.getStudentById(givenId);
 
 			studentList = studentDAO.getAllStudents();
 
-
-			// 3. Add the data to the request attributes
 			request.setAttribute("studentList", studentList);
 
-			request.setAttribute("txtId", givenId);
-			request.setAttribute("student", student);
-
-			// 4. Forward the request back to the JSP page
 			request.getRequestDispatcher("StudentList.jsp").forward(request, response);
-//			request.getRequestDispatcher("StudentList.jsp").forward(request, response);
-			request.getRequestDispatcher("StudentSearch.jsp").forward(request, response);
 
+		} catch (Exception ex) {
+			System.out.println("Error \n");
 		}
+
+	}
+
 }
